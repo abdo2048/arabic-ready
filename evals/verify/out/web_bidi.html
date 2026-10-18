@@ -1,0 +1,24 @@
+<!doctype html><html lang="ar" dir="rtl"><meta charset="utf-8">
+<style>@font-face{font-family:Plex;src:url(file:///root/.fonts/IBMPlexSansArabic-400.ttf)}
+body{font-family:Plex;width:640px;margin:10px;font-size:22px}
+.row{border-bottom:1px solid #ddd;padding:4px 0;display:flex;gap:12px;align-items:center}
+.lbl{font:12px monospace;color:#c00;direction:ltr;width:200px;flex:none}
+.btn{display:inline-block;height:1.2em;line-height:1;overflow:hidden;background:#eee;padding:0 6px;font-family:'Noto Naskh Arabic'}
+</style>
+<div class="row"><span class="lbl">EN name + count raw</span><span>نشر John Smith 3 منشورات</span></div>
+<div class="row"><span class="lbl">EN name + count bdi</span><span>نشر <bdi>John Smith</bdi> 3 منشورات</span></div>
+<div class="row"><span class="lbl">negative raw</span><span>درجة الحرارة -5 درجات</span></div>
+<div class="row"><span class="lbl">negative LRM</span><span>درجة الحرارة &lrm;-5 درجات</span></div>
+<div class="row"><span class="lbl">negative bdi</span><span>درجة الحرارة <bdi dir="ltr">-5</bdi> درجات</span></div>
+<div class="row"><span class="lbl">code raw</span><span>استخدم الأمر npm install --save ثم أعد التشغيل.</span></div>
+<div class="row"><span class="lbl">code &lt;code dir=ltr&gt;</span><span>استخدم الأمر <code dir="ltr">npm install --save</code> ثم أعد التشغيل.</span></div>
+<div class="row"><span class="lbl">email first, dir=auto</span><span dir="auto">support@acme.com هو بريد الدعم.</span></div>
+<div class="row"><span class="lbl">email first, dir=rtl</span><span dir="rtl">support@acme.com هو بريد الدعم.</span></div>
+<div class="row"><span class="lbl">ltr page: AR name+num</span><span dir="ltr">User إيان: 90 points</span></div>
+<div class="row"><span class="lbl">ltr page: bdi</span><span dir="ltr">User <bdi>إيان</bdi>: 90 points</span></div>
+<div class="row"><span class="lbl">input tel no dir</span><input value="+966 50 123 4567" style="font:inherit;width:300px"></div>
+<div class="row"><span class="lbl">input tel dir=ltr</span><input dir="ltr" value="+966 50 123 4567" style="font:inherit;width:300px;text-align:right"></div>
+<div class="row"><span class="lbl">tashkeel clipped (h:1.2em)</span><span class="btn">أَرْسِلْ الآنَ</span></div>
+<div class="row"><span class="lbl">Arabic-Indic digits</span><span>السعر ١٢٣٫٥٠ ر.س — الهاتف ٠٥٠١٢٣٤٥٦٧</span></div>
+<div class="row"><span class="lbl">ranges 5-10 / 9:00-17:00</span><span>من 5-10 أيام، الدوام 9:00-17:00</span></div>
+</html>

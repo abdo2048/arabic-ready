@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<style>
+  .card { margin-inline-start: 16px; padding-inline-end: 8px; text-align: start; }
+  .badge { position: absolute; inset-inline-start: 0; }
+  .title { float: inline-end; border-start-start-radius: 4px; }
+  .en { letter-spacing: 0.05em; } /* rtl-ok: Latin only */
+  [dir="rtl"] .icon-dir { transform: scaleX(-1); }
+</style>
+</head>
+<body>
+  <h1 class="ms-4 pe-2 text-start">مرحبا</h1>
+  <a href="/next">التالي ← <i class="fa-solid fa-arrow-right rtl-flip"></i></a>
+  <span class="material-symbols-outlined icon-dir mirror">arrow_back</span>
+  <span class="material-symbols-outlined">play_arrow</span>
+  <input type="tel" name="phone" dir="ltr" class="text-end">
+  <input type="email" dir="ltr">
+  <input type="text" name="city">
+</body>
+</html>

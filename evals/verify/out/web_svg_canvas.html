@@ -1,0 +1,20 @@
+<!doctype html><html lang="ar" dir="rtl"><meta charset="utf-8">
+<style>@font-face{font-family:Plex;src:url(file:///root/.fonts/IBMPlexSansArabic-400.ttf)} body{font-family:Plex;margin:10px;font-size:14px}
+svg,canvas{border:1px solid #ccc;display:block;margin-bottom:6px}</style>
+<p>SVG (each box 400 wide, red line = x 390)</p>
+<svg width="400" height="150" font-family="Plex" font-size="20" direction="ltr" style="direction:ltr">
+ <line x1="390" y1="0" x2="390" y2="150" stroke="red"/>
+ <text x="390" y="30" text-anchor="end">a) فاتورة رقم 1024 للعميل Acme؟</text>
+ <text x="390" y="65" text-anchor="end" direction="rtl">فاتورة رقم 1024 للعميل Acme؟</text>
+ <text x="390" y="100" text-anchor="start" direction="rtl" unicode-bidi="embed">فاتورة رقم 1024 للعميل Acme؟</text>
+ <text x="390" y="135" text-anchor="end" style="direction:rtl;unicode-bidi:embed">فاتورة رقم 1024 للعميل Acme؟</text>
+</svg>
+<p>Canvas</p>
+<canvas id=c width=400 height=120></canvas>
+<script>
+const x=document.getElementById('c').getContext('2d'); x.font='20px Plex';
+x.strokeStyle='red'; x.beginPath(); x.moveTo(390,0); x.lineTo(390,120); x.stroke();
+x.direction='ltr'; x.textAlign='right'; x.fillText('فاتورة رقم 1024 للعميل Acme؟',390,30);
+x.direction='rtl'; x.textAlign='right'; x.fillText('فاتورة رقم 1024 للعميل Acme؟',390,65);
+x.direction='rtl'; x.textAlign='start'; x.fillText('فاتورة رقم 1024 للعميل Acme؟',390,100);
+</script></html>

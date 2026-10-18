@@ -1,0 +1,74 @@
+[
+ {
+  "id": "01-pricing-tailwind",
+  "lang": "en",
+  "render": "html",
+  "prompt": "Build a pricing page in Arabic for a Saudi SaaS called \"سحابة\". Three plans with monthly prices in SAR, feature lists with check icons, a \"most popular\" badge, a CTA button with an arrow icon, a top nav with logo and links, and a short FAQ. Tailwind CSS, single HTML file named index.html."
+ },
+ {
+  "id": "02-login-form",
+  "lang": "ar",
+  "render": "html",
+  "prompt": "صمم صفحة تسجيل دخول لتطبيق بنكي سعودي: حقل رقم الجوال، حقل البريد الإلكتروني الاختياري، كلمة المرور، خيار تذكرني، رابط نسيت كلمة المرور، وزر رجوع بسهم في أعلى الصفحة. ملف HTML واحد باسم index.html مع CSS عادي."
+ },
+ {
+  "id": "03-invoice-pdf",
+  "lang": "en",
+  "render": "pdf",
+  "prompt": "Generate a PDF invoice in Arabic with Python. Seller: مؤسسة النور للتجارة. Customer: Acme Trading LLC, phone +971 50 123 4567, email billing@acme.ae. Four line items in a table (two product names are in English), quantity, unit price, line total, then subtotal, VAT 5% and total in AED. Save it as invoice.pdf."
+ },
+ {
+  "id": "04-bar-chart",
+  "lang": "ar",
+  "render": "png",
+  "prompt": "ارسم مخطط أعمدة بمكتبة matplotlib لمبيعات الربع الأول: يناير 120، فبراير 180، مارس 150 (بالألف ريال)، مع عنوان وتسميات للمحاور ووسيلة إيضاح بالعربي، واحفظه في chart.png."
+ },
+ {
+  "id": "05-word-report",
+  "lang": "en",
+  "render": "docx",
+  "prompt": "Create a one-page Word document (report.docx) in Arabic using python-docx: a quarterly HR report for an Egyptian company with a title, two short paragraphs (mention 12% turnover and a 2026 hiring plan), a bullet list of three highlights, and a table of headcount by department (4 departments)."
+ },
+ {
+  "id": "06-slide",
+  "lang": "en",
+  "render": "pptx",
+  "prompt": "Create a single PowerPoint slide (slide.pptx) in Arabic with python-pptx for a UAE board meeting: title \"نتائج الربع الثالث\" and three bullet points: revenue growth 25%, 1,200 new customers, NPS score 62."
+ },
+ {
+  "id": "07-caption-image",
+  "lang": "ar",
+  "render": "png",
+  "prompt": "اصنع صورة إنستغرام مقاس 1080×1080 باستخدام بايثون ومكتبة Pillow، فيها عنوان كبير «خصم 30% على جميع المنتجات»، وسطر «لفترة محدودة!»، وتحتهما الرابط shop.example.com. احفظها باسم post.png."
+ },
+ {
+  "id": "08-react-native",
+  "lang": "en",
+  "render": "static",
+  "prompt": "Write a React Native (Expo) profile screen for an Arabic-language app in a single file ProfileScreen.tsx: avatar, user name, phone number, a settings list where each row has an icon, a label and a chevron, and a logout button. Use StyleSheet."
+ },
+ {
+  "id": "09-whatsapp",
+  "lang": "en",
+  "render": "text",
+  "prompt": "Write a WhatsApp marketing message in Arabic for a perfume store in Riyadh announcing a 30% weekend sale (Thursday to Saturday). Include the phone number +966 50 123 4567 and the link shop.example.com/sa. Save the message as message.txt."
+ },
+ {
+  "id": "10-reportlab-receipt",
+  "lang": "en",
+  "render": "pdf",
+  "prompt": "Our backend already uses reportlab. Add a script that generates an Arabic payment receipt PDF (receipt.pdf) with reportlab: store name متجر الياسمين, receipt number 5521, customer name, a short paragraph of thank-you text that wraps over at least two lines, a table of 3 items with prices in SAR, and the total."
+ },
+ {
+  "id": "11-pptxgenjs-deck",
+  "lang": "en",
+  "render": "pptx",
+  "prompt": "Using pptxgenjs (Node), create deck.pptx with one Arabic slide for a Saudi client: title «خطة الإطلاق 2026» and a bulleted list: «المرحلة الأولى: يناير – مارس», «ميزانية 1.2 مليون ريال», «فريق من 15 شخصًا (Product + Engineering)»."
+ },
+ {
+  "id": "12-matplotlib-310",
+  "lang": "ar",
+  "render": "png",
+  "prompt": "مشروعنا مثبّت على matplotlib 3.10 — استخدم بايثون الموجود في /tmp/claude-0/-home-user-Rtl-arabic/97e93c8d-fd72-5a57-9684-997829bf8a67/scratchpad/mpl310/bin/python فقط. ارسم مخطط أعمدة أفقي لأكثر المنتجات مبيعًا: «قهوة عربية» 340، «تمر سكري» 280، «عود كمبودي» 150، مع عنوان «أكثر المنتجات مبيعًا – أكتوبر» وتسمية المحور «عدد الطلبات». احفظه في chart.png."
+ }
+]

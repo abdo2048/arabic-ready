@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ar-SA" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>الأسعار | سحابة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"IBM Plex Sans Arabic"', '"Noto Sans Arabic"', 'Tahoma', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: { 50: '#eef6ff', 100: '#d9eaff', 500: '#2f7cf6', 600: '#1d63de', 700: '#1a4fb3', 900: '#0f2a5c' },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body { line-height: 1.75; }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] .faq-icon { transform: rotate(45deg); }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-50 font-sans text-slate-800 antialiased">
+
+  <!-- الشريط العلوي -->
+  <header class="sticky top-0 z-20 border-b border-slate-200 bg-white/90 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-3 sm:px-6" aria-label="التنقل الرئيسي">
+      <a href="#" class="flex items-center gap-2" aria-label="سحابة - الصفحة الرئيسية">
+        <svg class="size-9" viewBox="0 0 40 40" aria-hidden="true">
+          <rect width="40" height="40" rx="10" fill="#2f7cf6"/>
+          <path d="M13 27h14a5 5 0 0 0 .6-9.96A7 7 0 0 0 14.2 19 4 4 0 0 0 13 27Z" fill="#fff"/>
+        </svg>
+        <span class="text-xl font-bold text-slate-900">سحابة</span>
+      </a>
+      <ul class="hidden items-center gap-8 text-[15px] font-medium text-slate-600 md:flex">
+        <li><a href="#" class="hover:text-brand-600">المزايا</a></li>
+        <li><a href="#" class="text-brand-600" aria-current="page">الأسعار</a></li>
+        <li><a href="#" class="hover:text-brand-600">الحلول</a></li>
+        <li><a href="#faq" class="hover:text-brand-600">الأسئلة الشائعة</a></li>
+        <li><a href="#" class="hover:text-brand-600">تواصل معنا</a></li>
+      </ul>
+      <div class="flex items-center gap-3">
+        <a href="#" class="hidden text-[15px] font-medium text-slate-600 hover:text-brand-600 sm:inline">تسجيل الدخول</a>
+        <a href="#" class="rounded-lg bg-brand-600 px-4 py-2 text-[15px] font-semibold text-white hover:bg-brand-700">ابدأ مجانًا</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- العنوان -->
+    <section class="mx-auto max-w-3xl px-4 pb-12 pt-16 text-center sm:px-6">
+      <span class="inline-block rounded-full bg-brand-100 px-3 py-1 text-sm font-medium text-brand-700">أسعار واضحة بلا رسوم خفية</span>
+      <h1 class="mt-5 text-4xl font-bold leading-snug text-slate-900 sm:text-5xl sm:leading-tight">اختر الباقة المناسبة لنمو أعمالك</h1>
+      <p class="mt-4 text-lg leading-relaxed text-slate-600">جميع الباقات تشمل تجربة مجانية لمدة 14 يومًا، ويمكنك الترقية أو الإلغاء في أي وقت.</p>
+    </section>
+
+    <!-- الباقات -->
+    <section class="mx-auto max-w-6xl px-4 pb-20 sm:px-6" aria-label="الباقات">
+      <div class="grid items-stretch gap-6 lg:grid-cols-3">
+
+        <!-- الأساسية -->
+        <article class="flex flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+          <h2 class="text-xl font-bold text-slate-900">الأساسية</h2>
+          <p class="mt-2 text-slate-600">للأفراد والمشاريع الناشئة.</p>
+          <p class="mt-6 flex items-baseline gap-2">
+            <span class="text-5xl font-bold text-slate-900">49</span>
+            <span class="text-lg font-medium text-slate-600">ر.س / شهريًا</span>
+          </p>
+          <ul class="mt-8 flex flex-1 flex-col gap-3 text-[15px]">
+            <li class="flex items-start gap-3"><svg class="mt-1 size-5 shrink-0 text-brand-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>مساحة تخزين 50 جيجابايت</li>
+            <li class="flex items-start gap-3"><svg class="mt-1 size-5 shrink-0 text-brand-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>حتى 3 مستخدمين</li>
+            <li class="flex items-start gap-3"><svg class="mt-1 size-5 shrink-0 text-brand-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>نسخ احتياطي يومي</li>
+            <li class="flex items-start gap-3"><svg class="mt-1 size-5 shrink-0 text-brand-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>دعم فني عبر البريد الإلكتروني</li>
+          </ul>
+          <a href="#" class="mt-8 inline-flex items-center justify-center gap-2 rounded-xl border border-brand-600 px-5 py-3 font-semibold text-brand-700 hover:bg-brand-50">
+            ابدأ الآن
+            <svg class="size-5 rtl:-scale-x-100" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+          </a>
+        </article>
+
+        <!-- الاحترافية (الأكثر طلبًا) -->
+        <article class="relative flex flex-col rounded-2xl border-2 border-brand-600 bg-white p-8 shadow-xl shadow-brand-600/10 lg:-my-4 lg:py-12">
+          <span class="absolute inset-x-0 -top-4 mx-auto w-fit whitespace-nowrap rounded-full bg-brand-600 px-4 py-1 text-sm font-semibold text-white shadow">الأكثر طلبًا</span>
+          <h2 class="text-xl font-bold text-slate-900">الاحترافية</h2>
+          <p class="mt-2 text-slate-600">للفرق والشركات المتنامية.</p>
+          <p class="mt-6 flex items-baseline gap-2">
+            <span class="text-5xl font-bold text-slate-900">149</span>
+            <span class="text-lg font-medium text-slate-600">ر.س / شهريًا</span>
+          </p>
+          <ul class="mt-8 flex flex-1 flex-col gap-3 text-[15px]">
+            <li class="flex items-start gap-3"><svg class="mt-1 size-5 shrink-0 text-brand-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>مساحة تخزين 500 جيجابايت</li>
+            <li class="flex items-start gap-3"><svg class="mt-1 size-5 shrink-0 text-brand-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>حتى 20 مستخدمًا</li>
+            <li class="flex items-start gap-3"><svg class="mt-1 size-5 shrink-0 text-brand-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>نسخ احتياطي كل ساعة</li>
+            <li class="flex items-start gap-3"><svg class="mt-1 size-5 shrink-0 text-brand-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>صلاحيات متقدمة للفريق</li>
+            <li class="flex items-start gap-3"><svg class="mt-1 size-5 shrink-0 text-brand-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>تكامل مع الأنظمة المحاسبية</li>
+            <li class="flex items-start gap-3"><svg class="mt-1 size-5 shrink-0 text-brand-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>دعم فني عبر المحادثة المباشرة</li>
+          </ul>
+          <a href="#" class="mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 py-3 font-semibold text-white shadow hover:bg-brand-700">
+            ابدأ تجربتك المجانية
+            <svg class="size-5 rtl:-scale-x-100" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+          </a>
+        </article>
+
+        <!-- المؤسسات -->
+        <article class="flex flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+          <h2 class="text-xl font-bold text-slate-900">المؤسسات</h2>
+          <p class="mt-2 text-slate-600">للجهات الكبيرة ذات المتطلبات الخاصة.</p>
+          <p class="mt-6 flex items-baseline gap-2">
+            <span class="text-5xl font-bold text-slate-900">399</span>
+            <span class="text-lg font-medium text-slate-600">ر.س / شهريًا</span>
+          </p>
+          <ul class="mt-8 flex flex-1 flex-col gap-3 text-[15px]">
+            <li class="flex items-start gap-3"><svg class="mt-1 size-5 shrink-0 text-brand-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>مساحة تخزين غير محدودة</li>
+            <li class="flex items-start gap-3"><svg class="mt-1 size-5 shrink-0 text-brand-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>عدد غير محدود من المستخدمين</li>
+            <li class="flex items-start gap-3"><svg class="mt-1 size-5 shrink-0 text-brand-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>استضافة البيانات داخل المملكة</li>
+            <li class="flex items-start gap-3"><svg class="mt-1 size-5 shrink-0 text-brand-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>تسجيل دخول موحّد <bdi dir="ltr">SSO</bdi></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 size-5 shrink-0 text-brand-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>مدير حساب مخصص</li>
+            <li class="flex items-start gap-3"><svg class="mt-1 size-5 shrink-0 text-brand-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>دعم فني على مدار الساعة</li>
+          </ul>
+          <a href="#" class="mt-8 inline-flex items-center justify-center gap-2 rounded-xl border border-brand-600 px-5 py-3 font-semibold text-brand-700 hover:bg-brand-50">
+            تواصل مع المبيعات
+            <svg class="size-5 rtl:-scale-x-100" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+          </a>
+        </article>
+      </div>
+      <p class="mt-10 text-center text-sm text-slate-500">الأسعار بالريال السعودي ولا تشمل ضريبة القيمة المضافة (15%).</p>
+    </section>
+
+    <!-- الأسئلة الشائعة -->
+    <section id="faq" class="border-t border-slate-200 bg-white">
+      <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+        <h2 class="text-center text-3xl font-bold text-slate-900">الأسئلة الشائعة</h2>
+        <div class="mt-10 flex flex-col gap-4">
+          <details class="group rounded-xl border border-slate-200 p-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900">
+              هل يمكنني تغيير باقتي لاحقًا؟
+              <svg class="faq-icon size-5 shrink-0 text-brand-600 transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+            </summary>
+            <p class="mt-3 text-slate-600">نعم، يمكنك الترقية أو الانتقال إلى باقة أقل في أي وقت من لوحة التحكم، ويُحتسب الفرق تلقائيًا في فاتورتك التالية.</p>
+          </details>
+          <details class="group rounded-xl border border-slate-200 p-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900">
+              ما طرق الدفع المتاحة؟
+              <svg class="faq-icon size-5 shrink-0 text-brand-600 transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+            </summary>
+            <p class="mt-3 text-slate-600">نقبل مدى، وبطاقات فيزا وماستركارد، وApple Pay، والتحويل البنكي لباقة المؤسسات.</p>
+          </details>
+          <details class="group rounded-xl border border-slate-200 p-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900">
+              أين تُخزَّن بياناتي؟
+              <svg class="faq-icon size-5 shrink-0 text-brand-600 transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+            </summary>
+            <p class="mt-3 text-slate-600">تُستضاف بياناتك في مراكز بيانات داخل المملكة العربية السعودية، وفق متطلبات الهيئة الوطنية للأمن السيبراني.</p>
+          </details>
+          <details class="group rounded-xl border border-slate-200 p-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900">
+              هل توجد فترة تجربة مجانية؟
+              <svg class="faq-icon size-5 shrink-0 text-brand-600 transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+            </summary>
+            <p class="mt-3 text-slate-600">نعم، تحصل على 14 يومًا مجانًا في أي باقة دون الحاجة إلى بطاقة ائتمانية.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-slate-50">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-8 text-sm text-slate-500 sm:flex-row sm:px-6">
+      <p>© 2026 سحابة. جميع الحقوق محفوظة.</p>
+      <p>للتواصل: <bdi dir="ltr">+966 11 234 5678</bdi></p>
+    </div>
+  </footer>
+</body>
+</html>

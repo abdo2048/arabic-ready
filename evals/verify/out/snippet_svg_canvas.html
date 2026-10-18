@@ -1,0 +1,12 @@
+<!doctype html><html lang=ar dir=rtl><meta charset=utf-8><style>@font-face{font-family:'IBM Plex Sans Arabic';src:url(file:///root/.fonts/IBMPlexSansArabic-400.ttf)}
+svg,canvas{border:1px solid #ccc;display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="400" height="60" font-family="IBM Plex Sans Arabic, Noto Sans Arabic, sans-serif">
+  <text x="390" y="35" direction="rtl" text-anchor="start" unicode-bidi="embed" font-size="20">فاتورة رقم 1024 للعميل Acme؟</text>
+</svg>
+<canvas id=c width=400 height=60></canvas>
+<script type=module>const canvas=document.getElementById('c'); await document.fonts.load('24px "IBM Plex Sans Arabic"');   // otherwise the first draw uses a fallback font
+const ctx = canvas.getContext("2d");
+ctx.font = '24px "IBM Plex Sans Arabic"';
+ctx.direction = "rtl";        // ❌ without it, mixed text reorders like LTR
+ctx.textAlign = "right";      // or "start" (= right when direction is rtl)
+ctx.fillText("فاتورة رقم 1024 للعميل Acme؟", canvas.width - 10, 40);
+ document.title='done'</script></html>

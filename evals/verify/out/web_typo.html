@@ -1,0 +1,20 @@
+<!doctype html><html lang="ar" dir="rtl"><meta charset="utf-8">
+<style>
+@font-face{font-family:Naskh;src:url(file:///root/.fonts/NotoNaskhArabic-400.ttf)}
+@font-face{font-family:Plex;src:url(file:///root/.fonts/IBMPlexSansArabic-400.ttf)}
+body{font-family:Plex;width:560px;margin:10px;font-size:22px}
+.row{border-bottom:1px solid #ddd;padding:6px 0;display:flex;gap:12px;align-items:center}
+.lbl{font:12px monospace;color:#c00;direction:ltr;width:170px;flex:none}
+</style>
+<div class="row"><span class="lbl">normal</span><span>مرحبا بكم في متجرنا</span></div>
+<div class="row"><span class="lbl">letter-spacing:4px</span><span style="letter-spacing:4px">مرحبا بكم في متجرنا</span></div>
+<div class="row"><span class="lbl">font-style:italic</span><span style="font-style:italic">مرحبا بكم في متجرنا</span></div>
+<div class="row"><span class="lbl">tashkeel lh:1 overflow</span><span style="line-height:1;overflow:hidden;display:block;font-family:Naskh">إِنَّ مَعَ الْعُسْرِ يُسْرًا</span></div>
+<div class="row"><span class="lbl">tashkeel lh:1.8</span><span style="line-height:1.8;display:block;font-family:Naskh">إِنَّ مَعَ الْعُسْرِ يُسْرًا</span></div>
+<div class="row"><span class="lbl">no dir on mixed (ltr)</span><span dir="ltr">اتصل بنا: +966 50 123 4567</span></div>
+<div class="row"><span class="lbl">phone no bdi</span><span>اتصل على +966 50 123 4567.</span></div>
+<div class="row"><span class="lbl">phone in &lt;bdi dir=ltr&gt;</span><span>اتصل على <bdi dir="ltr">+966 50 123 4567</bdi>.</span></div>
+<div class="row"><span class="lbl">English end no isolate</span><span>أفضل أداة هي Visual Studio Code!</span></div>
+<div class="row"><span class="lbl">user name isolate</span><span>علّق <bdi>John (Admin)</bdi> على منشورك</span></div>
+<div class="row"><span class="lbl">user name raw</span><span>علّق John (Admin) على منشورك</span></div>
+</html>

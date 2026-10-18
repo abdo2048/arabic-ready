@@ -1,0 +1,11 @@
+node_modules/
+__pycache__/
+*.pyc
+evals/verify/out/*.pdf
+evals/verify/out/*.docx
+evals/verify/out/*.pptx
+evals/verify/out/*.svg
+evals/runs/**/node_modules/
+.DS_Store
+evals/runs/**/_*
+evals/harness/node_modules/

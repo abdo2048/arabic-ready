@@ -1,0 +1,3 @@
+.nav { margin-right: auto; border-left: 1px solid #ccc; }
+.tooltip { right: 12px; text-align: right; }
+.btn { @apply pl-4 text-left; }

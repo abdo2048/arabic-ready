@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تسجيل الدخول | مصرف الواحة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f6f5;
+    --surface: #ffffff;
+    --ink: #13201b;
+    --muted: #5d6b65;
+    --line: #d9e0dc;
+    --brand: #0b6b4f;
+    --brand-ink: #ffffff;
+    --brand-soft: #e6f2ed;
+    --focus: #0b6b4f33;
+    --danger: #b3261e;
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; }
+
+  body {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans Arabic", "Noto Sans Arabic", Tahoma, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-block: 14px;
+    padding-inline: 16px;
+    max-width: 480px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .15s, border-color .15s;
+  }
+  .back-btn:hover { background: var(--brand-soft); border-color: var(--brand); }
+  .back-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .back-btn svg { width: 22px; height: 22px; }
+  /* The arrow is drawn pointing left (LTR "back"); mirror it in RTL so it points right, toward the start edge */
+  [dir="rtl"] .back-btn svg { transform: scaleX(-1); }
+
+  .topbar-title { font-size: 1rem; font-weight: 600; margin: 0; }
+
+  /* ---------- Main card ---------- */
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 480px;
+    margin-inline: auto;
+    padding-inline: 16px;
+    padding-block: 8px 32px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-block: 8px 24px;
+  }
+  .brand-mark {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    background: var(--brand);
+    color: var(--brand-ink);
+    display: grid; place-items: center;
+    font-weight: 700; font-size: 1.4rem;
+  }
+  .brand-name { font-weight: 700; font-size: 1.15rem; margin: 0; }
+  .brand-sub { color: var(--muted); font-size: .85rem; margin: 0; }
+
+  h1 { font-size: 1.6rem; margin: 0 0 4px; font-weight: 700; }
+  .lead { color: var(--muted); margin: 0 0 24px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px 20px;
+  }
+
+  .field { margin-block-end: 18px; }
+
+  label {
+    display: block;
+    font-weight: 500;
+    margin-block-end: 6px;
+    font-size: .95rem;
+  }
+  .optional {
+    color: var(--muted);
+    font-weight: 400;
+    font-size: .85rem;
+  }
+
+  .input-wrap {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    transition: border-color .15s, box-shadow .15s;
+    overflow: hidden;
+  }
+  .input-wrap:focus-within {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 4px var(--focus);
+  }
+  .input-wrap.invalid { border-color: var(--danger); }
+
+  input[type="tel"],
+  input[type="email"],
+  input[type="password"],
+  input[type="text"] {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font: inherit;
+    color: inherit;
+    padding: 12px 14px;
+    height: 50px;
+  }
+
+  /* Phone & email are Latin/numeric data: type LTR, but align to the RTL start (right) edge */
+  input.ltr {
+    direction: ltr;
+    text-align: right;
+  }
+  input.ltr::placeholder { text-align: right; }
+
+  /* Country code: always LTR so "+966" doesn't render as "966+" */
+  .prefix {
+    direction: ltr;
+    unicode-bidi: isolate;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-inline: 12px;
+    background: var(--brand-soft);
+    color: var(--ink);
+    font-weight: 600;
+    border-inline-start: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  /* In RTL the prefix sits visually on the left (end), next to where the number begins */
+  .phone-wrap { flex-direction: row; }
+
+  .toggle-pass {
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    padding-inline: 14px;
+    cursor: pointer;
+    font: inherit;
+    font-size: .85rem;
+    font-weight: 500;
+  }
+  .toggle-pass:hover { color: var(--brand); }
+  .toggle-pass:focus-visible { outline: 2px solid var(--brand); outline-offset: -4px; border-radius: 8px; }
+
+  .hint, .error {
+    font-size: .8rem;
+    margin-block-start: 6px;
+    margin-block-end: 0;
+  }
+  .hint { color: var(--muted); }
+  .error { color: var(--danger); display: none; }
+  .field.has-error .error { display: block; }
+  .field.has-error .input-wrap { border-color: var(--danger); }
+
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-block: 4px 22px;
+  }
+
+  .checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    margin: 0;
+    font-weight: 400;
+  }
+  .checkbox input {
+    width: 20px; height: 20px;
+    accent-color: var(--brand);
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .link {
+    color: var(--brand);
+    font-weight: 500;
+    text-decoration: none;
+    font-size: .95rem;
+  }
+  .link:hover { text-decoration: underline; }
+  .link:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 4px; }
+
+  .btn-primary {
+    width: 100%;
+    height: 52px;
+    border: 0;
+    border-radius: var(--radius);
+    background: var(--brand);
+    color: var(--brand-ink);
+    font: inherit;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: filter .15s;
+  }
+  .btn-primary:hover { filter: brightness(1.08); }
+  .btn-primary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+  .alt {
+    text-align: center;
+    margin-block-start: 20px;
+    color: var(--muted);
+    font-size: .95rem;
+  }
+
+  .secure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-block-start: 24px;
+    color: var(--muted);
+    font-size: .8rem;
+  }
+  .secure svg { width: 16px; height: 16px; flex: none; }
+
+  .ltr-inline { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1513;
+      --surface: #17201c;
+      --ink: #e8efeb;
+      --muted: #9aa9a2;
+      --line: #2b3832;
+      --brand: #3fb68b;
+      --brand-ink: #06140f;
+      --brand-soft: #1d2d26;
+      --focus: #3fb68b44;
+      --danger: #f2827a;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="#" class="back-btn" aria-label="رجوع" onclick="history.back(); return false;">
+    <!-- Drawn as a left-pointing arrow; CSS mirrors it to point right in RTL -->
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M19 12H5"/>
+      <path d="M11 18l-6-6 6-6"/>
+    </svg>
+  </a>
+  <p class="topbar-title">تسجيل الدخول</p>
+</header>
+
+<main>
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">و</div>
+    <div>
+      <p class="brand-name">مصرف الواحة</p>
+      <p class="brand-sub">الخدمات المصرفية الرقمية</p>
+    </div>
+  </div>
+
+  <h1>مرحبًا بعودتك</h1>
+  <p class="lead">سجّل دخولك للوصول إلى حساباتك وإدارة أموالك بأمان.</p>
+
+  <form class="card" id="loginForm" novalidate>
+    <!-- Mobile number -->
+    <div class="field" id="phoneField">
+      <label for="phone">رقم الجوال</label>
+      <div class="input-wrap phone-wrap">
+        <input
+          id="phone" name="phone" type="tel" class="ltr"
+          inputmode="numeric" autocomplete="tel-national"
+          placeholder="5X XXX XXXX" maxlength="11" required
+          aria-describedby="phoneHint phoneError">
+        <span class="prefix" aria-label="رمز الدولة السعودية">🇸🇦 +966</span>
+      </div>
+      <p class="hint" id="phoneHint">أدخل رقم الجوال المكوّن من 9 أرقام ويبدأ بـ 5</p>
+      <p class="error" id="phoneError" role="alert">يرجى إدخال رقم جوال سعودي صحيح يبدأ بـ 5</p>
+    </div>
+
+    <!-- Optional email -->
+    <div class="field" id="emailField">
+      <label for="email">البريد الإلكتروني <span class="optional">(اختياري)</span></label>
+      <div class="input-wrap">
+        <input
+          id="email" name="email" type="email" class="ltr"
+          autocomplete="email" placeholder="name@example.com"
+          aria-describedby="emailError">
+      </div>
+      <p class="error" id="emailError" role="alert">صيغة البريد الإلكتروني غير صحيحة</p>
+    </div>
+
+    <!-- Password -->
+    <div class="field" id="passField">
+      <label for="password">كلمة المرور</label>
+      <div class="input-wrap">
+        <input
+          id="password" name="password" type="password"
+          autocomplete="current-password" placeholder="أدخل كلمة المرور"
+          required minlength="8" aria-describedby="passError">
+        <button type="button" class="toggle-pass" id="togglePass" aria-pressed="false" aria-controls="password">إظهار</button>
+      </div>
+      <p class="error" id="passError" role="alert">كلمة المرور يجب ألا تقل عن 8 أحرف</p>
+    </div>
+
+    <div class="row">
+      <label class="checkbox">
+        <input type="checkbox" name="remember" id="remember">
+        <span>تذكرني</span>
+      </label>
+      <a href="#" class="link">نسيت كلمة المرور؟</a>
+    </div>
+
+    <button type="submit" class="btn-primary">تسجيل الدخول</button>
+
+    <p class="alt">ليس لديك حساب؟ <a href="#" class="link">افتح حسابًا جديدًا</a></p>
+  </form>
+
+  <p class="secure">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="4" y="11" width="16" height="10" rx="2"/>
+      <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+    </svg>
+    اتصالك مشفّر ومحمي. لن نطلب منك رمز التحقق عبر الهاتف أبدًا.
+  </p>
+</main>
+
+<script>
+  // Convert Arabic-Indic digits to Latin and keep only digits
+  const toLatinDigits = s => s
+    .replace(/[٠-٩]/g, d => d.charCodeAt(0) - 0x0660)
+    .replace(/[۰-۹]/g, d => d.charCodeAt(0) - 0x06F0);
+
+  const phone = document.getElementById('phone');
+  phone.addEventListener('input', () => {
+    let v = toLatinDigits(phone.value).replace(/\D/g, '');
+    if (v.startsWith('966')) v = v.slice(3);
+    if (v.startsWith('0')) v = v.slice(1);
+    v = v.slice(0, 9);
+    // Format as 5X XXX XXXX
+    phone.value = v.replace(/^(\d{2})(\d{0,3})(\d{0,4}).*/, (_, a, b, c) => [a, b, c].filter(Boolean).join(' '));
+  });
+
+  const pass = document.getElementById('password');
+  const toggle = document.getElementById('togglePass');
+  toggle.addEventListener('click', () => {
+    const show = pass.type === 'password';
+    pass.type = show ? 'text' : 'password';
+    toggle.textContent = show ? 'إخفاء' : 'إظهار';
+    toggle.setAttribute('aria-pressed', String(show));
+  });
+
+  document.getElementById('loginForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const digits = phone.value.replace(/\D/g, '');
+    const email = document.getElementById('email').value.trim();
+    const checks = [
+      ['phoneField', /^5\d{8}$/.test(digits)],
+      ['emailField', email === '' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)],
+      ['passField', pass.value.length >= 8],
+    ];
+    let firstBad = null;
+    checks.forEach(([id, ok]) => {
+      const f = document.getElementById(id);
+      f.classList.toggle('has-error', !ok);
+      f.querySelector('input').setAttribute('aria-invalid', String(!ok));
+      if (!ok && !firstBad) firstBad = f.querySelector('input');
+    });
+    if (firstBad) { firstBad.focus(); return; }
+    alert('تم التحقق من البيانات بنجاح (نموذج تجريبي)');
+  });
+</script>
+</body>
+</html>

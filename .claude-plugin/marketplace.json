@@ -1,0 +1,23 @@
+{
+  "name": "arabic-ready",
+  "owner": {
+    "name": "jubyuhanna-create",
+    "url": "https://github.com/jubyuhanna-create"
+  },
+  "metadata": {
+    "description": "Skills for producing correct Arabic / RTL output.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "arabic-ready",
+      "source": "./",
+      "description": "Arabic output that is right the first time: RTL layout, letter shaping, bidi, fonts, numerals and natural wording for web, mobile, Word, PowerPoint, PDF, charts and images.",
+      "version": "1.0.0",
+      "author": { "name": "jubyuhanna-create" },
+      "license": "MIT",
+      "keywords": ["arabic", "rtl", "bidi", "i18n"],
+      "category": "productivity"
+    }
+  ]
+}

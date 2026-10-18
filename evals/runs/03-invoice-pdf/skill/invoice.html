@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ar-AE" dir="rtl"><head><meta charset="utf-8">
+<style>
+@font-face { font-family: "Plex Arabic"; font-weight: 400; src: url("file:///root/.fonts/IBMPlexSansArabic-400.ttf"); }
+@font-face { font-family: "Plex Arabic"; font-weight: 700; src: url("file:///root/.fonts/IBMPlexSansArabic-700.ttf"); }
+@page { size: A4; margin: 16mm 16mm 18mm;
+  @bottom-center { content: "شكرًا لتعاملكم معنا"; font-family: "Plex Arabic"; font-size: 9pt; color: #6b7280; } }
+:root { --ink: #1f2937; --muted: #6b7280; --accent: #0f766e; --line: #e5e7eb; --soft: #f0fdfa; }
+body { font-family: "Plex Arabic", "Noto Sans Arabic", sans-serif; color: var(--ink);
+  font-size: 10.5pt; line-height: 1.7; background: #fff; margin: 0; }
+header { display: flex; justify-content: space-between; align-items: flex-start;
+  border-bottom: 3px solid var(--accent); padding-bottom: 10pt; margin-bottom: 14pt; }
+.seller-name { font-size: 17pt; font-weight: 700; color: var(--accent); margin: 0; line-height: 1.6; }
+.muted { color: var(--muted); font-size: 9.5pt; }
+.title { text-align: end; }
+.title h1 { font-size: 24pt; margin: 0; line-height: 1.5; }
+.meta { border-collapse: collapse; margin-inline-start: auto; font-size: 9.5pt; }
+.meta td { padding: 1pt 0; } .meta td:first-child { color: var(--muted); padding-inline-end: 10pt; }
+.parties { display: flex; gap: 14pt; margin-bottom: 16pt; }
+.box { flex: 1; background: var(--soft); border-radius: 6pt; padding: 8pt 12pt; }
+.box h2 { font-size: 10pt; color: var(--accent); margin: 0 0 2pt; }
+.box .name { font-weight: 700; font-size: 12pt; }
+table.items { width: 100%; border-collapse: collapse; }
+table.items th { background: var(--accent); color: #fff; font-weight: 700; padding: 6pt 8pt; text-align: start; }
+table.items td { padding: 6pt 8pt; border-bottom: 1px solid var(--line); }
+table.items tr:nth-child(even) td { background: #f9fafb; }
+.num { text-align: center; white-space: nowrap; }
+th.num { text-align: center; }
+.totals { width: 46%; margin-inline-start: auto; margin-top: 12pt; border-collapse: collapse; }
+.totals td { padding: 5pt 8pt; } .totals td:last-child { text-align: end; white-space: nowrap; }
+.totals tr.grand td { background: var(--accent); color: #fff; font-weight: 700; font-size: 12pt; }
+.notes { margin-top: 22pt; font-size: 9.5pt; color: var(--muted); }
+</style></head><body>
+<header>
+  <div>
+    <p class="seller-name">مؤسسة النور للتجارة</p>
+    <div class="muted">دبي، الإمارات العربية المتحدة</div>
+    <div class="muted">الرقم الضريبي: <bdi dir="ltr">100234567800003</bdi></div>
+    <div class="muted">الهاتف: <bdi dir="ltr">+971 4 555 0199</bdi> · البريد: <bdi dir="ltr">sales@alnoor-trading.ae</bdi></div>
+  </div>
+  <div class="title">
+    <h1>فاتورة ضريبية</h1>
+    <table class="meta">
+      <tr><td>رقم الفاتورة</td><td><bdi dir="ltr">INV-2026-0147</bdi></td></tr>
+      <tr><td>تاريخ الإصدار</td><td>18 أكتوبر 2026</td></tr>
+      <tr><td>تاريخ الاستحقاق</td><td>17 نوفمبر 2026</td></tr>
+    </table>
+  </div>
+</header>
+<section class="parties">
+  <div class="box"><h2>فاتورة إلى</h2>
+    <div class="name"><bdi dir="ltr">Acme Trading LLC</bdi></div>
+    <div>الهاتف: <bdi dir="ltr">+971 50 123 4567</bdi></div>
+    <div>البريد الإلكتروني: <bdi dir="ltr">billing@acme.ae</bdi></div></div>
+  <div class="box"><h2>طريقة الدفع</h2>
+    <div>تحويل بنكي خلال 30 يومًا من تاريخ الإصدار</div>
+    <div>العملة: درهم إماراتي (<bdi dir="ltr">AED</bdi>)</div></div>
+</section>
+<table class="items">
+  <thead><tr><th class="num">#</th><th>الصنف</th><th class="num">الكمية</th>
+  <th class="num">سعر الوحدة (درهم)</th><th class="num">الإجمالي (درهم)</th></tr></thead>
+  <tbody><tr><td class='num'>1</td><td class='desc'><bdi dir="ltr">Logitech MX Keys Keyboard</bdi></td><td class='num'>5</td><td class='num'>420.00</td><td class='num'>2,100.00</td></tr><tr><td class='num'>2</td><td class='desc'>طاولة مكتب خشبية</td><td class='num'>3</td><td class='num'>1,250.00</td><td class='num'>3,750.00</td></tr><tr><td class='num'>3</td><td class='desc'><bdi dir="ltr">Dell P2723D Monitor</bdi></td><td class='num'>4</td><td class='num'>1,150.00</td><td class='num'>4,600.00</td></tr><tr><td class='num'>4</td><td class='desc'>كرسي مكتب مريح</td><td class='num'>6</td><td class='num'>875.00</td><td class='num'>5,250.00</td></tr></tbody>
+</table>
+<table class="totals">
+  <tr><td>المجموع الفرعي</td><td>15,700.00 درهم</td></tr>
+  <tr><td>ضريبة القيمة المضافة (<bdi dir="ltr">5%</bdi>)</td><td>785.00 درهم</td></tr>
+  <tr class="grand"><td>الإجمالي المستحق</td><td>16,485.00 درهم</td></tr>
+</table>
+<p class="notes">جميع الأسعار بالدرهم الإماراتي (<bdi dir="ltr">AED</bdi>). يُرجى ذكر رقم الفاتورة عند التحويل.</p>
+</body></html>

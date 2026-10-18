@@ -1,0 +1,4 @@
+ProfileScreen.tsx:171:35  warning [icon-mirror] directional icon `chevron-back` is not mirrored for RTL
+    fix: add class "rtl:-scale-x-100" (Tailwind) or CSS [dir="rtl"] .icon { transform: scaleX(-1); } or swap Left/Right icons when RTL
+
+rtl_check: 1 file(s) scanned, 0 error(s), 1 warning(s)

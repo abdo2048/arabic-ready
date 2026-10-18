@@ -1,0 +1,6 @@
+.nav { margin-inline-end: auto; border-inline-start: 1px solid #ccc; }
+.tooltip { inset-inline-end: 12px; text-align: end; }
+.btn { @apply ps-4 text-start; }
+.centered { left: auto; margin: 0 auto; letter-spacing: normal; }
+/* .old { margin-left: 4px; } */
+.legacy { margin-left: 4px; } /* rtl-ok: third-party override */

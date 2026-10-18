@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ar-SA" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تسجيل الدخول | مصرفي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0b6b4f;
+      --primary-dark: #08523c;
+      --accent: #c9a24a;
+      --bg: #f3f6f4;
+      --surface: #ffffff;
+      --text: #1b2621;
+      --muted: #5f6e67;
+      --border: #d5ddd9;
+      --error: #b42318;
+      --radius: 14px;
+      font-family: "IBM Plex Sans Arabic", "Noto Sans Arabic", "Segoe UI", Tahoma, system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* شريط علوي مع زر الرجوع */
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-block: 16px;
+      padding-inline: 20px;
+      max-inline-size: 480px;
+      margin-inline: auto;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      inline-size: 44px;
+      block-size: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .15s, border-color .15s;
+    }
+    .back-btn:hover { background: #eaf2ee; border-color: var(--primary); }
+    .back-btn:focus-visible { outline: 3px solid rgba(11,107,79,.35); outline-offset: 2px; }
+    .back-btn svg { inline-size: 22px; block-size: 22px; }
+    /* السهم مرسوم متجهًا لليسار (رجوع في LTR)، ونعكسه في RTL ليشير إلى اليمين */
+    [dir="rtl"] .icon-directional { transform: scaleX(-1); }
+    .topbar-title { font-size: 17px; font-weight: 500; }
+
+    main {
+      max-inline-size: 480px;
+      margin-inline: auto;
+      padding-inline: 20px;
+      padding-block-end: 40px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-block: 8px 24px;
+    }
+    .brand-logo {
+      inline-size: 52px;
+      block-size: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .brand-logo svg { inline-size: 28px; block-size: 28px; }
+    .brand-name { font-size: 20px; font-weight: 700; line-height: 1.4; margin: 0; }
+    .brand-tag { font-size: 14px; color: var(--muted); margin: 0; }
+
+    .card {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 28px 24px;
+      box-shadow: 0 6px 24px rgba(16, 40, 30, .07);
+    }
+    h1 { font-size: 24px; line-height: 1.4; margin: 0 0 4px; }
+    .subtitle { color: var(--muted); margin: 0 0 24px; font-size: 15px; }
+
+    .field { margin-block-end: 18px; }
+    .field label {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      font-weight: 500;
+      font-size: 15px;
+      margin-block-end: 6px;
+    }
+    .optional { font-weight: 400; font-size: 13px; color: var(--muted); }
+
+    .input-wrap {
+      display: flex;
+      align-items: stretch;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .input-wrap:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(11,107,79,.12);
+    }
+    .input-wrap.invalid { border-color: var(--error); }
+    .input-wrap input {
+      flex: 1;
+      min-inline-size: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      font: inherit;
+      font-size: 16px;
+      color: var(--text);
+      padding-block: 13px;
+      padding-inline: 14px;
+      text-align: end; /* حقول LTR تبقى محاذية لبداية النموذج العربي */
+    }
+    .input-wrap input::placeholder { color: #9aa7a1; }
+
+    /* مفتاح الدولة: حقل الجوال كله LTR، فيظهر +966 على اليسار كما يُكتب الرقم */
+    .phone-wrap input { text-align: start; } /* يلاصق مفتاح الدولة داخل الحاوية LTR */
+    .prefix {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding-inline: 12px;
+      border-inline-end: 1px solid var(--border);
+      color: var(--muted);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .toggle-pass {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding-inline: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .toggle-pass:hover { color: var(--primary); }
+    .toggle-pass svg { inline-size: 20px; block-size: 20px; }
+
+    .hint { font-size: 13px; color: var(--muted); margin-block-start: 4px; }
+    .error-msg { font-size: 13px; color: var(--error); margin-block-start: 4px; display: none; }
+    .field.has-error .error-msg { display: block; }
+    .field.has-error .hint { display: none; }
+
+    .row-between {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-block: 4px 24px;
+    }
+    .remember {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .remember input {
+      inline-size: 18px;
+      block-size: 18px;
+      accent-color: var(--primary);
+      margin: 0;
+    }
+    .link {
+      color: var(--primary);
+      font-weight: 500;
+      font-size: 15px;
+      text-decoration: none;
+    }
+    .link:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.3em;
+      text-decoration-skip-ink: auto;
+    }
+
+    .submit {
+      inline-size: 100%;
+      border: 0;
+      border-radius: var(--radius);
+      background: var(--primary);
+      color: #fff;
+      font: inherit;
+      font-size: 17px;
+      font-weight: 700;
+      padding-block: 14px;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .submit:hover { background: var(--primary-dark); }
+    .submit:focus-visible { outline: 3px solid rgba(11,107,79,.35); outline-offset: 2px; }
+
+    .signup { text-align: center; margin-block-start: 20px; font-size: 15px; color: var(--muted); }
+
+    .secure-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-block-start: 20px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .secure-note svg { inline-size: 18px; block-size: 18px; flex-shrink: 0; margin-block-start: 2px; color: var(--primary); }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="javascript:history.back()" class="back-btn" aria-label="رجوع">
+      <svg class="icon-directional" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/>
+      </svg>
+    </a>
+    <span class="topbar-title">تسجيل الدخول</span>
+  </header>
+
+  <main>
+    <div class="brand">
+      <div class="brand-logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 21h18"/>
+        </svg>
+      </div>
+      <div>
+        <p class="brand-name">مصرفي</p>
+        <p class="brand-tag">خدماتك البنكية في متناول يدك</p>
+      </div>
+    </div>
+
+    <section class="card">
+      <h1>مرحبًا بعودتك</h1>
+      <p class="subtitle">سجّل الدخول للوصول إلى حساباتك وإدارة أموالك بأمان.</p>
+
+      <form id="loginForm" novalidate>
+        <!-- رقم الجوال -->
+        <div class="field" id="phoneField">
+          <label for="phone">رقم الجوال</label>
+          <div class="input-wrap phone-wrap" dir="ltr">
+            <span class="prefix" dir="ltr">🇸🇦 +966</span>
+            <input id="phone" name="phone" type="tel" inputmode="numeric" dir="ltr"
+                   placeholder="5X XXX XXXX" autocomplete="tel-national" maxlength="9" required
+                   aria-describedby="phoneHint phoneError">
+          </div>
+          <div class="hint" id="phoneHint">أدخل رقم جوالك المسجّل لدى البنك بدون الصفر.</div>
+          <div class="error-msg" id="phoneError">أدخل رقم جوال سعوديًا صحيحًا يبدأ بالرقم 5 ويتكون من 9 أرقام.</div>
+        </div>
+
+        <!-- البريد الإلكتروني (اختياري) -->
+        <div class="field" id="emailField">
+          <label for="email">البريد الإلكتروني <span class="optional">(اختياري)</span></label>
+          <div class="input-wrap">
+            <input id="email" name="email" type="email" dir="ltr"
+                   placeholder="name@example.com" autocomplete="email"
+                   aria-describedby="emailError">
+          </div>
+          <div class="error-msg" id="emailError">صيغة البريد الإلكتروني غير صحيحة.</div>
+        </div>
+
+        <!-- كلمة المرور -->
+        <div class="field" id="passField">
+          <label for="password">كلمة المرور</label>
+          <div class="input-wrap">
+            <input id="password" name="password" type="password" dir="ltr"
+                   placeholder="••••••••" autocomplete="current-password" required
+                   aria-describedby="passError">
+            <button type="button" class="toggle-pass" id="togglePass" aria-label="إظهار كلمة المرور">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+          <div class="error-msg" id="passError">أدخل كلمة المرور.</div>
+        </div>
+
+        <div class="row-between">
+          <label class="remember">
+            <input type="checkbox" name="remember" id="remember">
+            تذكّرني
+          </label>
+          <a href="#" class="link">نسيت كلمة المرور؟</a>
+        </div>
+
+        <button type="submit" class="submit">سجّل الدخول</button>
+      </form>
+
+      <p class="signup">ليس لديك حساب؟ <a href="#" class="link">افتح حسابًا الآن</a></p>
+    </section>
+
+    <p class="secure-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+      </svg>
+      <span>اتصالك مشفّر ومحمي. لن نطلب منك أبدًا رمز التحقق أو كلمة المرور عبر الهاتف أو الرسائل.</span>
+    </p>
+  </main>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const phone = document.getElementById('phone');
+    const email = document.getElementById('email');
+    const pass = document.getElementById('password');
+    const toggle = document.getElementById('togglePass');
+
+    // قبول الأرقام الغربية فقط، مع تحويل الأرقام العربية الهندية إن كتبها المستخدم
+    phone.addEventListener('input', () => {
+      const map = { '٠':'0','١':'1','٢':'2','٣':'3','٤':'4','٥':'5','٦':'6','٧':'7','٨':'8','٩':'9' };
+      phone.value = phone.value.replace(/[٠-٩]/g, d => map[d]).replace(/\D/g, '').replace(/^0/, '').slice(0, 9);
+    });
+
+    toggle.addEventListener('click', () => {
+      const show = pass.type === 'password';
+      pass.type = show ? 'text' : 'password';
+      toggle.setAttribute('aria-label', show ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور');
+    });
+
+    function setError(fieldId, hasError) {
+      const field = document.getElementById(fieldId);
+      field.classList.toggle('has-error', hasError);
+      field.querySelector('.input-wrap').classList.toggle('invalid', hasError);
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const phoneOk = /^5\d{8}$/.test(phone.value);
+      const emailOk = email.value.trim() === '' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+      const passOk = pass.value.length > 0;
+      setError('phoneField', !phoneOk);
+      setError('emailField', !emailOk);
+      setError('passField', !passOk);
+      if (phoneOk && emailOk && passOk) {
+        form.querySelector('.submit').textContent = 'جارٍ تسجيل الدخول…';
+      }
+    });
+  </script>
+</body>
+</html>

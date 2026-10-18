@@ -1,0 +1,6 @@
+index.html:158:5  error [physical-css] `text-align: right` doesn't flip in RTL
+    fix: text-align: end
+index.html:160:28  error [physical-css] `text-align: right` doesn't flip in RTL
+    fix: text-align: end
+
+rtl_check: 1 file(s) scanned, 2 error(s), 0 warning(s)

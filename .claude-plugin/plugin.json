@@ -1,0 +1,13 @@
+{
+  "name": "arabic-ready",
+  "version": "1.0.0",
+  "description": "Arabic output that is right the first time: RTL layout, letter shaping, bidi, fonts, numerals and natural wording for web, mobile, Word, PowerPoint, PDF, charts and images.",
+  "author": {
+    "name": "jubyuhanna-create",
+    "url": "https://github.com/jubyuhanna-create"
+  },
+  "homepage": "https://github.com/jubyuhanna-create/arabic-ready",
+  "repository": "https://github.com/jubyuhanna-create/arabic-ready",
+  "license": "MIT",
+  "keywords": ["arabic", "rtl", "right-to-left", "bidi", "i18n", "localization", "typography", "tailwind", "pdf", "docx", "matplotlib", "عربي"]
+}
